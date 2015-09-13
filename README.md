@@ -2,6 +2,10 @@
 
 inspired by [hitode909/speedline](https://github.com/hitode909/speedline)
 
+## Install
+
+- `% gem install rmagick`
+
 ## Gallery
 
 [![Gyazo](https://i.gyazo.com/a0d013111bf5d846f0dc6ff62343612e.gif)](https://gyazo.com/a0d013111bf5d846f0dc6ff62343612e)

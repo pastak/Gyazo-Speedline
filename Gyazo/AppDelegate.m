@@ -16,7 +16,7 @@ int callRubyScript(NSString * filename) {
     NSTask *             task = [ [ NSTask alloc ] init ]; 
     NSPipe *          pipeErr = [ NSPipe pipe ];
     NSMutableString* curPath  = [ NSMutableString string ];
-    NSMutableString* scrPath  = [ NSMutableString string ]; 
+    NSMutableString* scrPath  = [ NSMutableString string ];
     
     // Set error pipe 
     [ task setStandardError : pipeErr ]; 
