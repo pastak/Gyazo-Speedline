@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 
 require 'net/http'
+$:.unshift(File.join(File.dirname(__FILE__), 'lib'))
+require 'speedline'
 
 # get id
 user = IO.popen("whoami", "r+").gets.chomp
@@ -24,7 +26,7 @@ if imagefile && File.exist?(imagefile) then
 else
   system "screencapture -i \"#{tmpfile}\""
   if File.exist?(tmpfile) then
-    system "sips -d profile --deleteColorManagementProperties \"#{tmpfile}\""  
+    system "sips -d profile --deleteColorManagementProperties \"#{tmpfile}\""
     dpiWidth    = `sips -g dpiWidth "#{tmpfile}" | awk '/:/ {print $2}'`
     dpiHeight   = `sips -g dpiHeight "#{tmpfile}" | awk '/:/ {print $2}'`
     pixelWidth  = `sips -g pixelWidth "#{tmpfile}" | awk '/:/ {print $2}'`
@@ -41,7 +43,7 @@ if !File.exist?(tmpfile) then
   exit
 end
 
-imagedata = File.read(tmpfile)
+imagedata = SpeedLine.new.apply_for_file(tmpfile)
 File.delete(tmpfile)
 
 # upload
